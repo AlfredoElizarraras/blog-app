@@ -1,12 +1,10 @@
 require 'rails_helper'
 
-RSpec.describe "Welcomes", type: :request do
-
-  describe "GET /root" do
+RSpec.describe "Articles", type: :request do
+  describe "GET /articles" do
     it "returns http success" do
-      get root_url
+      get articles_path
       expect(response).to have_http_status(:success)
     end
   end
-
 end
