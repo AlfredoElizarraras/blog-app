@@ -4,6 +4,7 @@
     <li><%= error %></li>
   <% end %>
   </ul>
+
   <p>
     <%= f.label :title %><br />
     <%= f.text_field :title %>
@@ -13,6 +14,11 @@
     <%= f.text_area :text %>
   </p>
   <p>
+    <%= f.label :tag_list %><br />
+    <%= f.text_field :tag_list %>
+  </p>
+  <p>
     <%= f.submit %>
   </p>
+
 <% end %>
