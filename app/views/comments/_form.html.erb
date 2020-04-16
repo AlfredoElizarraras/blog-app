@@ -1,4 +1,5 @@
 <%= form_with(model: [ @article, @article.comments.build ], local: true) do |form| %>
+
   <p>
     <%= form.label :author_name, "Your name" %><br>
     <%= form.text_field :author_name %>

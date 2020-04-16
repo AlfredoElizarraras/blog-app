@@ -3,7 +3,7 @@ class Article < ApplicationRecord
   validates :title, presence: true,
                     length: { minimum: 5 }
 
-  has_many :taggings
+  has_many :taggings, dependent: :destroy
   has_many :tags, through: :taggings
 
   def tag_list
