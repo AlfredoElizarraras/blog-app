@@ -5,6 +5,7 @@ class Article < ApplicationRecord
 
   has_many :taggings, dependent: :destroy
   has_many :tags, through: :taggings
+  has_many_attached :images, dependent: :destroy
 
   def tag_list
     self.tags.collect do |tag|

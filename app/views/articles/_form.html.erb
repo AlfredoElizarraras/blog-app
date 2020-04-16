@@ -27,6 +27,10 @@
     <%= f.text_field :tag_list %>
   </p>
   <p>
+    <%= f.label :images %><br>
+    <%= f.file_field :images, :multiple => true %>
+  </p>
+  <p>
     <%= f.submit %>
   </p>
 

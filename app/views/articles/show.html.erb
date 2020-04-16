@@ -9,6 +9,12 @@
 
 <p><%= @article.text %></p>
 
+<p>
+<% @article.images.each do |image| %>
+  <%= image_tag image %> <br />
+<% end %>
+</p>
+
 <h3>Comments (<%= @article.comments.size %>)</h3>
 <%= render partial: 'articles/comment' %>
 

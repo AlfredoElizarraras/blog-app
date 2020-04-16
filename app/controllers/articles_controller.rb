@@ -19,6 +19,9 @@ class ArticlesController < ApplicationController
     @article = Article.new(article_params)
     if @article.save
       flash.notice = "Article '#{@article.title}' Created!"
+      if @article.images.attached?
+        @article.images.attach(params[:article][:images])
+      end
       redirect_to article_path(@article)
     else
       render 'new'
@@ -29,6 +32,11 @@ class ArticlesController < ApplicationController
     @article = Article.find(params[:id])
     if @article.update(article_params)
       flash.notice = "Article '#{@article.title}' Successfully Updated!"
+      if @article.images.attached?
+        @article.images.purge
+        @article.images.attach(params[:article][:images])
+      end
+      
       redirect_to article_path(@article)
     else
       render 'edit'
@@ -45,7 +53,7 @@ class ArticlesController < ApplicationController
   private
 
   def article_params
-    params.require(:article).permit(:title, :text, :tag_list)
+    params.require(:article).permit(:title, :text, :tag_list, :images)
   end
 
 end
