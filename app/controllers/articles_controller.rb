@@ -20,6 +20,7 @@ class ArticlesController < ApplicationController
     if @article.save
       flash.notice = "Article '#{@article.title}' Created!"
       if @article.images.attached?
+        @article.images.purge
         @article.images.attach(params[:article][:images])
       end
       redirect_to article_path(@article)
