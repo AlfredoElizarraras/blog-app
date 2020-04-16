@@ -28,7 +28,7 @@
   </p>
   <p>
     <%= f.label :images %><br>
-    <%= f.file_field :images, :multiple => true %>
+    <%= f.file_field :images, :multiple => true, accept: '/jpg, /png, /jpeg' %>
   </p>
   <p>
     <%= f.submit %>
