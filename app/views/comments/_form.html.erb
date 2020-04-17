@@ -1,16 +1,10 @@
 <%= form_with(model: [ @article, @article.comments.build ], local: true) do |form| %>
-
   <p>
-    <%= form.label :author_name, "Your name" %><br>
     <% if logged_in? %>
-      <%= form.text_field :author_name, value: current_user.username %>
+      <%= form.text_area :body %>
     <% else %>
-      <%= form.text_field :author_name %>
+      <%= form.text_area :body, value: "Must log in to comment!", disabled: true %>
     <% end %>
-  </p>
-  <p>
-    <%= form.label :body, "Your comment" %><br>
-    <%= form.text_area :body %>
   </p>
   <p>
     <%= form.submit %>

@@ -4,6 +4,7 @@ class CommentsController < ApplicationController
   def create
     @article = Article.find(params[:article_id])
     @comment = @article.comments.build(comment_params)
+    @comment.author_name = current_user.username
     @comment.author_id = current_user.id
     if @comment.save  
       flash.notice = "Comment Created!"
