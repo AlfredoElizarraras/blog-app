@@ -4,7 +4,7 @@
   <% @articles.each do |article| %>
     <li>
      <%= link_to article.title, article_path(article) %>
-     <% if logged_in? %>
+     <% if logged_in? && current_user.id == article.author_id %>
       <%= link_to "Delete this article", article_path(article), 
           method: :delete, data: {confirm: "Really delete the article?"} %>
     <% end %>

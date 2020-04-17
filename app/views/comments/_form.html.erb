@@ -2,7 +2,11 @@
 
   <p>
     <%= form.label :author_name, "Your name" %><br>
-    <%= form.text_field :author_name %>
+    <% if logged_in? %>
+      <%= form.text_field :author_name, value: current_user.username %>
+    <% else %>
+      <%= form.text_field :author_name %>
+    <% end %>
   </p>
   <p>
     <%= form.label :body, "Your comment" %><br>

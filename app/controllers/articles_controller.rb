@@ -18,7 +18,8 @@ class ArticlesController < ApplicationController
   end
 
   def create
-    @article = Article.new(article_params)
+    @author = Author.find(current_user.id)
+    @article = @author.articles.create(article_params)
     if @article.save
       flash.notice = "Article '#{@article.title}' Created!"
       if @article.images.attached?
@@ -32,7 +33,8 @@ class ArticlesController < ApplicationController
   end
 
   def update
-    @article = Article.find(params[:id])
+    @author = Author.find(current_user.id)
+    @article =  @author.articles.find(params[:id])
     if @article.update(article_params)
       flash.notice = "Article '#{@article.title}' Successfully Updated!"
       if @article.images.attached?
@@ -47,7 +49,8 @@ class ArticlesController < ApplicationController
   end
 
   def destroy
-    @article = Article.find(params[:id])
+    @author = Author.find(current_user.id)
+    @article = @author.articles.find(params[:id])
     @article.destroy
     flash.notice = "Article '#{@article.title}' Successsfully deleted"
     redirect_to articles_path
