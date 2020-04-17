@@ -2,11 +2,15 @@ class CommentsController < ApplicationController
   before_action :require_login, except: [:create]
 
   def create
-    puts params
-    # @author = Author.find(current_user.id)
-    # @article = @author.articles.find(params[:article_id])
-    # @comment = @article.comments.create(comment_params)
-    # redirect_to article_path(@article)
+    @article = Article.find(params[:article_id])
+    @comment = @article.comments.build(comment_params)
+    @comment.author_id = current_user.id
+    if @comment.save  
+      flash.notice = "Comment Created!"
+      redirect_to article_path(@article)
+    else
+       render 'articles/show'
+    end
   end
 
   def destroy
