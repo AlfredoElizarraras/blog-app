@@ -2,6 +2,11 @@
   <p>
     <strong><%= comment.author_name.nil? ? "No author" : comment.author_name + ':' %></strong>
     <%= comment.body + "\t" %>
-    <p class="comment-time">Posted <%= distance_of_time_in_words(comment.created_at, Time.now) %> later</p><br>
+    <p class="comment-time">Posted <%= distance_of_time_in_words(comment.created_at, Time.now) %> later 
+    <% if logged_in? %>
+      <%= link_to 'Delete Comment', [comment.article, comment], method: :delete, data: { confirm: 'Are you sure?' } %>
+    <% end %>
+    </p>
+    <br> 
   </p>
 <% end %>
