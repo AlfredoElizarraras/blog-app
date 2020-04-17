@@ -1,13 +1,17 @@
 <h1><%= @article.title %></h1>
 
 <p>
+  <%= "Posted by: #{@author} "%>
+</p>
+<br>
+<p>
   Tags:
   <% @article.tags.each do |tag| %>
     <%= link_to tag.name, tag_path(tag) %>
   <% end %>
 </p>
-
-<p><%= @article.text %></p>
+<br>
+<p class= 'article-text'><%= @article.text %></p>
 
 <p>
 <% @article.images.each do |image| %>
