@@ -5,7 +5,7 @@ RSpec.describe Article, type: :model do
   let(:author) { Author.new(username: 'Author test', email: "author@mail.com")}
   let(:article) { Article.new(title: 'Rails test post!') }
   let(:comment) { Comment.new(body: 'Test comment')}
-
+  
   before do 
     author.save
     article.author_id = author.id
@@ -13,13 +13,14 @@ RSpec.describe Article, type: :model do
       article.text = "first" if article.text.nil?
       article.text += indx.to_s
     end
+    article.tag_list = "test_tag1, test_tag2"
     article.save
     comment.author_name = author.username
     comment.author_id = author.id
     comment.article_id = article.id
     comment.save
-  end
 
+  end
   it 'title should be present.' do
     expect(article).to be_valid
   end
@@ -67,6 +68,11 @@ RSpec.describe Article, type: :model do
     it 'destroy the comments related with the article.' do
       comment = article.comments.first
       expect(comment).to be(nil)
+    end
+
+    it 'destroy the tagging related with the article' do
+      tagging = article.taggings.first
+      expect(tagging).to be_nil
     end
   end
 end

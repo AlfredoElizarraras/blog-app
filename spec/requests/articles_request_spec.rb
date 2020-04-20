@@ -5,6 +5,6 @@ RSpec.describe "Articles", type: :request do
     it "returns http success" do
       get articles_path
       expect(response).to have_http_status(:success)
-    end
+    end 
   end
 end
