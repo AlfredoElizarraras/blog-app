@@ -7,7 +7,8 @@ class Article < ApplicationRecord
   has_many :taggings, dependent: :destroy
   has_many :tags, through: :taggings
   has_many_attached :images, dependent: :destroy
-  validate :correct_image_mime_type 
+  validate :correct_image_mime_type
+  validates :text, presence: true, length: {minimum: 20, maximum: 1000 }
 
   def tag_list
     self.tags.collect do |tag|
