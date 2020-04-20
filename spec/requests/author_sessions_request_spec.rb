@@ -1,5 +1,4 @@
 require 'rails_helper'
 
-RSpec.describe "AuthorSessions", type: :request do
-
+RSpec.describe 'AuthorSessions', type: :request do
 end

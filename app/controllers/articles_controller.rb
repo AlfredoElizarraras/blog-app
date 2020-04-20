@@ -35,14 +35,14 @@ class ArticlesController < ApplicationController
 
   def update
     @author = Author.find(current_user.id)
-    @article =  @author.articles.find(params[:id])
+    @article = @author.articles.find(params[:id])
     if @article.update(article_params)
       flash.notice = "Article '#{@article.title}' Successfully Updated!"
       if @article.images.attached?
         @article.images.purge
         @article.images.attach(params[:article][:images])
       end
-      
+
       redirect_to article_path(@article)
     else
       render 'edit'
@@ -62,5 +62,4 @@ class ArticlesController < ApplicationController
   def article_params
     params.require(:article).permit(:title, :text, :tag_list, images: [])
   end
-
 end

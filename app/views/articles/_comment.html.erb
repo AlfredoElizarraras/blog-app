@@ -1,9 +1,9 @@
 <% @article.comments.reverse_each do |comment| %>
   <p>
-    <strong><%= comment.author_name.nil? ? "No author" : comment.author_name + ':' %></strong>
+    <strong><%= comment.author_name.nil? ? 'No author' : comment.author_name + ':' %></strong>
     <%= comment.body + "\t" %>
     <% unless comment.created_at.nil? %>
-      <p class="comment-time">Posted <%= distance_of_time_in_words(comment.created_at, Time.now) %> later 
+      <p class='comment-time'>Posted <%= distance_of_time_in_words(comment.created_at, Time.now) %> later 
     <% end %>
 
     <% if logged_in?  && (current_user.id == @article.author_id || current_user.id == comment.author_id) %>

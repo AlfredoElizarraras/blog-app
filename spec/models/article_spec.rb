@@ -2,24 +2,23 @@ require 'rails_helper'
 
 RSpec.describe Article, type: :model do
   # pending "add some examples to (or delete) #{__FILE__}"
-  let(:author) { Author.new(username: 'Author test', email: "author@mail.com")}
+  let(:author) { Author.new(username: 'Author test', email: "author@mail.com") }
   let(:article) { Article.new(title: 'Rails test post!') }
-  let(:comment) { Comment.new(body: 'Test comment')}
-  
-  before do 
+  let(:comment) { Comment.new(body: 'Test comment') }
+
+  before do
     author.save
     article.author_id = author.id
     20.times do |indx|
       article.text = "first" if article.text.nil?
       article.text += indx.to_s
     end
-    article.tag_list = "test_tag1, test_tag2"
+    article.tag_list = 'test_tag1, test_tag2'
     article.save
     comment.author_name = author.username
     comment.author_id = author.id
     comment.article_id = article.id
     comment.save
-
   end
   it 'title should be present.' do
     expect(article).to be_valid
