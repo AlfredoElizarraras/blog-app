@@ -1,7 +1,7 @@
 class AuthorsController < ApplicationController
-  before_action :set_author, only: [:show, :edit, :update, :destroy]
-  before_action :require_login, except: [:new, :create]
-  before_action :zero_authors_or_authenticated, only: [:new, :create]
+  before_action :set_author, only: %i[show edit update destroy]
+  before_action :require_login, except: %i[new create]
+  before_action :zero_authors_or_authenticated, only: %i[new create]
 
   # GET /authors
   # GET /authors.json
@@ -62,10 +62,10 @@ class AuthorsController < ApplicationController
   end
 
   def zero_authors_or_authenticated
-    unless Author.count == 0 || current_user
-      redirect_to root_path
-      return false
-    end
+    return if Author.count.zero? || current_user
+
+    redirect_to root_path
+    false
   end
 
   private

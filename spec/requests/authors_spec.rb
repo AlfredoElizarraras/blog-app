@@ -15,13 +15,9 @@ require 'rails_helper'
 RSpec.describe '/authors', type: :request do
   # Author. As you add validations to Author, be sure to
   # adjust the attributes here as well.
-  let(:valid_attributes) {
-    skip('Add a hash of attributes valid for your model')
-  }
+  let(:valid_attributes) { skip('Add a hash of attributes valid for your model') }
 
-  let(:invalid_attributes) {
-    skip('Add a hash of attributes invalid for your model')
-  }
+  let(:invalid_attributes) { skip('Add a hash of attributes invalid for your model') }
 
   describe 'GET /index' do
     it 'renders a successful response' do
@@ -57,9 +53,9 @@ RSpec.describe '/authors', type: :request do
   describe 'POST /create' do
     context 'with valid parameters' do
       it 'creates a new Author' do
-        expect {
+        expect do
           post authors_url, params: { author: valid_attributes }
-        }.to change(Author, :count).by(1)
+        end.to change(Author, :count).by(1)
       end
 
       it 'redirects to the created author' do
@@ -70,12 +66,12 @@ RSpec.describe '/authors', type: :request do
 
     context 'with invalid parameters' do
       it 'does not create a new Author' do
-        expect {
+        expect do
           post authors_url, params: { author: invalid_attributes }
-        }.to change(Author, :count).by(0)
+        end.to change(Author, :count).by(0)
       end
 
-      it 'renders a successful response (i.e. to display the 'new' template)' do
+      it "renders a successful response (i.e. to display the 'new' template)" do
         post authors_url, params: { author: invalid_attributes }
         expect(response).to be_successful
       end
@@ -84,9 +80,9 @@ RSpec.describe '/authors', type: :request do
 
   describe 'PATCH /update' do
     context 'with valid parameters' do
-      let(:new_attributes) {
+      let(:new_attributes) do
         skip('Add a hash of attributes valid for your model')
-      }
+      end
 
       it 'updates the requested author' do
         author = Author.create! valid_attributes
@@ -104,7 +100,7 @@ RSpec.describe '/authors', type: :request do
     end
 
     context 'with invalid parameters' do
-      it 'renders a successful response (i.e. to display the 'edit' template)' do
+      it "renders a successful response (i.e. to display the 'edit' template)" do
         author = Author.create! valid_attributes
         patch author_url(author), params: { author: invalid_attributes }
         expect(response).to be_successful
@@ -115,9 +111,9 @@ RSpec.describe '/authors', type: :request do
   describe 'DELETE /destroy' do
     it 'destroys the requested author' do
       author = Author.create! valid_attributes
-      expect {
+      expect do
         delete author_url(author)
-      }.to change(Author, :count).by(-1)
+      end.to change(Author, :count).by(-1)
     end
 
     it 'redirects to the authors list' do

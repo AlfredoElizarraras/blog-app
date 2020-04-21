@@ -11,9 +11,7 @@ class Article < ApplicationRecord
   validates :text, presence: true, length: { minimum: 20, maximum: 1000 }
 
   def tag_list
-    self.tags.collect do |tag|
-      tag.name
-    end.join(', ')
+    tags.collect(&:name).join(', ')
   end
 
   def tag_list=(tags_string)
@@ -25,11 +23,11 @@ class Article < ApplicationRecord
   private
 
   def correct_image_mime_type
-    if images.attached?
-      images.each do |image|
-        unless image.content_type.match(/([a-zA-Z0-9\s_\\.\-\(\):])+(.jpg|.jpeg|.png)$/)
-          errors.add(:images, 'Must be a jpg, jpeg or a png file')
-        end
+    return unless images.attached?
+
+    images.each do |image|
+      unless image.content_type.match(/([a-zA-Z0-9\s_\\.\-\(\):])+(.jpg|.jpeg|.png)$/)
+        errors.add(:images, 'Must be a jpg, jpeg or a png file')
       end
     end
   end
