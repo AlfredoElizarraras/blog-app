@@ -1,0 +1,37 @@
+<%= form_for(@article) do |f| %>
+
+ <% if @article.errors.any? %>
+    <div id='error_explanation'>
+      <h2>
+        <%= pluralize(@article.errors.count, 'error') %>
+        prohibited this article from being saved:
+      </h2>
+      <ul>
+        <% @article.errors.full_messages.each do |msg| %>
+        <li><%= msg %></li>
+        <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <p>
+    <%= f.label :title %><br />
+    <%= f.text_field :title %>
+  </p>
+  <p>
+    <%= f.label :text %><br />
+    <%= f.text_area :text %>
+  </p>
+  <p>
+    <%= f.label :tag_list %><br />
+    <%= f.text_field :tag_list %>
+  </p>
+  <p>
+    <%= f.label :images %><br>
+    <%= f.file_field :images, :multiple => true, accept: '/jpg, /png, /jpeg' %>
+  </p>
+  <p>
+    <%= f.submit %>
+  </p>
+
+<% end %>

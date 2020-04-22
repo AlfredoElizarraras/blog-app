@@ -1,0 +1,6 @@
+<h1>Blog App</h1>
+<%= link_to 'List of articles',  controller:'articles'%><br>
+<% if logged_in? %>
+  <%= link_to 'New article', new_article_path %><br>
+<% end %>
+<%= link_to 'Tags',  controller:'tags'%>

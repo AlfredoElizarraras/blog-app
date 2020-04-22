@@ -1,0 +1,12 @@
+<%= form_with(model: [ @article, @article.comments.build ], local: true) do |form| %>
+  <p>
+    <% if logged_in? %>
+      <%= form.text_area :body %>
+    <% else %>
+      <%= form.text_area :body, value: "Must log in to comment!", disabled: true %>
+    <% end %>
+  </p>
+  <p>
+    <%= form.submit %>
+  </p>
+<% end %>

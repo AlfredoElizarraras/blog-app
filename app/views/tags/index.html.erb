@@ -1,0 +1,15 @@
+<h1>Tags list</h1>
+
+<ul id="tags">
+  <% @tags.each do |tag| %>
+    <li>
+      <%= link_to tag.name, tag_path(tag) %>
+      <% if logged_in?%>
+        <%= link_to "Delete this tag", tag_path(tag), 
+          method: :delete, data: {confirm: "Really delete this tag?"} %>
+      <%end%>
+    </li>
+  <% end %>
+</ul>
+<br>  
+<%= link_to  "Blog Home",  controller:'welcome'%>
