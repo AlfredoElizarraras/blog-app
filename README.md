@@ -1,4 +1,4 @@
-# Toy App
+# Blog App
 
 > This project is completed by Carlos Santamaría and Oscar Alfredo Gómez Elizarrarás, in partial requirements of the Microverse cirriculum. 
 
@@ -72,9 +72,9 @@ Give a ⭐️ if you like this project!
 
 ## 📝 License
 
-This project is [MIT](https://github.com/Alfredo/blog-app/blob/master/LICENSE) licensed.
+This project is [MIT](https://github.com/AlfredoElizarraras/blog-app/blob/master/LICENSE) licensed.
 
-Copyright 2020 Oscar Alfredo Gómez Elizarrarás and Carlos Santamaria
+Copyright 2020 Carlos Santamaria and Oscar Alfredo Gómez Elizarrarás
 
 Permission is hereby granted, free of charge, to any person obtaining a copy of this software and associated documentation files (the "Software"), to deal in the Software without restriction, including without limitation the rights to use, copy, modify, merge, publish, distribute, sublicense, and/or sell copies of the Software, and to permit persons to whom the Software is furnished to do so, subject to the following conditions:
 
