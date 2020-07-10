@@ -1,14 +1,26 @@
-# Blog App
+<h1>
+  Blog App
+</h1>
 
-> This project is completed by Carlos Santamaría and Oscar Alfredo Gómez Elizarrarás, in partial requirements of the Microverse cirriculum. 
+## Table of Contents
 
----
+* [About the Project](#about-the-project)
+* [Live Demo](#love-demo)
+* [Built With](#built-with)
+* [Prerequisites](#prerequisites)
+* [Install](#install)
+* [Authors](#authors)
+* [Contributing](#contributing)
+* [Acknowledgments](#acknowledgments)
+* [License](#license)
+
+## About the project
+
+> This project lets the login users to write articles and comment on them.
 
 ## Live Demo
 
 You can see a demo version [Here](https://blog-app-fo.herokuapp.com/)
-
----
 
 ## Built With
 
@@ -17,27 +29,22 @@ You can see a demo version [Here](https://blog-app-fo.herokuapp.com/)
 - PostgreSQL
 - RSpec
 
----
-
-### Prerequisites
+## Prerequisites
 
 - Ruby 2.7.0
 
-### Dependencies
+## Install
 
-- PostgreSQL gem
+`git clone https://github.com/AlfredoElizarraras/blog-app.git`
 
-
-### Install
-
-`git clone https://github.com/AlfredoElizarraras/blog-app.git'
-
-#### On command line:
+> On the command line:
 - `bundler install`
 - `rails db:setup`
 - `rails db:migrate`
 
 ## Authors
+
+> This project is completed by Carlos Santamaría and Oscar Alfredo Gómez Elizarrarás, in partial requirements of the Microverse cirriculum. 
 
 👤 **Carlos Santamaria**
 
@@ -51,15 +58,13 @@ You can see a demo version [Here](https://blog-app-fo.herokuapp.com/)
 - Twitter: [@OscarAlfredoGm4](https://twitter.com/OscarAlfredoGm4)
 - Linkedin: [@OscarAlfredoGómezElizarrarás](https://mx.linkedin.com/in/oscar-alfredo-gomez-elizarraras)
 
----
-
-## 🤝 Contributing
+## Contributing
 
 Contributions, issues and feature requests are welcome!
 
 Feel free to check the [issues page](https://github.com/AlfredoElizarraras/blog-app/issues).
 
-## Show your support
+### Show your support
 
 Give a ⭐️ if you like this project!
 
@@ -67,10 +72,11 @@ Give a ⭐️ if you like this project!
 
 - [Microverse](https://microverse.org)
 - [Odin project](https://www.theodinproject.com/)
+- [Jumpstartlab](http://tutorials.jumpstartlab.com/projects/blogger.html#i5:-authentication)
 
 ---
 
-## 📝 License
+## License
 
 This project is [MIT](https://github.com/AlfredoElizarraras/blog-app/blob/master/LICENSE) licensed.
 
